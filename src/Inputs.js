@@ -41,7 +41,7 @@ export default class Inputs extends Component {
                 <label htmlFor="pot-house">Adress of potential real estate</label>
                 <div className="input-group">
                     <span className="input-group-addon"><i className="fas fa-home"></i></span>
-                    <Geosuggest placeholder="Adress" />
+                    <Geosuggest placeholder="Address" />
                     {/*<!--id="pot-house" type="text" className="form-control" ref="home" placeholder="Adress"-->*/}
                 </div>
 

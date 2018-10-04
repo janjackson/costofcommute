@@ -41,7 +41,7 @@ const D3Map = (routes, home, locations) => {
     const homeIcon = L.icon({
         iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Home_font_awesome.svg/512px-Home_font_awesome.svg.png',
         iconSize: [50, 50]
-    }); 
+    });
 
     L.marker([home.lat, home.lng], {
         icon: homeIcon

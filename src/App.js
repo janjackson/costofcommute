@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Inputs from "./Inputs";
-import Map from "./Map";
 import Results from "./Results";
 import * as axios from 'axios'
 
@@ -72,8 +71,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <Map routes={routes} home={home} locations={locations} />
-        <Results/>
+        <Results routes={routes} home={home} locations={locations} />
       </div>
     );
   }
