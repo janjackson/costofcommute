@@ -1,0 +1,36 @@
+.navbar {
+    background-color: #00796B;
+    padding: 15px;
+}
+
+.site-logo {
+    color: #fff;
+    font-weight: 300;
+    font-size: 20px;
+    user-select: none;
+}
+
+.inputContainer {
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    background-position: center;
+    background-image: url(background-slider.png)
+}
+
+.inner-inputContainer {
+    padding: 50px 0 40px;
+    background: #151414de;
+    color: #fff;
+}
+
+h1 {
+    font-weight: 300;
+    font-size: 35px;
+    margin-bottom: 35px;
+}
+
+/*
+Primary: #00796B
+Accent: #FF5722
+*/
