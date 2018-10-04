@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import Inputs from "./Inputs";
+import Inputs from "./Input/Inputs";
+import Map from "./Map";
 import Results from "./Results";
 import * as axios from 'axios'
 
