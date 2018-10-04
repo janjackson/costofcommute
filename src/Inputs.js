@@ -10,10 +10,10 @@ export default class Inputs extends Component {
         };
     }
     handleClick(){
-        var title = this.refs.home.value
-        var locations = this.refs.locations
+        var homeAddress = this.refs.home.value
+        var locations = this.state.locations
         var opportunityCosts = this.refs.opportunityCosts.value
-        console.log('title, loc1name, loc1number ', title, locations, opportunityCosts)
+        console.log('homeAddress, loc1name, loc1number ', homeAddress, locations, opportunityCosts)
     }
     addLoc(){
         this.setState({
@@ -21,10 +21,17 @@ export default class Inputs extends Component {
             locations: this.state.locations.concat([{ location: '', number:0}])
         });
     }
-    handleChangeInput(index, type){
-      console.log('hi', this);
-      var state = this.state;
-      state.locations[index][type] = this
+    handleChangeLocation = (event) => {
+      var index = event.target.getAttribute('name')
+      var state = this.state
+      console.log('state ', state, index);
+      state.locations[index].location = event.target.value
+      this.setState(state)
+    }
+    handleChangeNumber = (event) => {
+      var index = event.target.getAttribute('name')
+      var state = this.state
+      state.locations[index].number = event.target.value
       this.setState(state)
     }
     render() {
@@ -33,16 +40,14 @@ export default class Inputs extends Component {
               <input ref="home" placeholder="Home"/><br/>
               <Geosuggest />
               { this.state.locations.map((val, index)=>{
-
                   return(
                       <div key={index}>
-                      <input name="location" type="text" value={this.state.locations[index].location} onChange={() => this.handleChangeInput(index, "location", this)}/><br/>
-                      <input name="number" type="number" value={this.state.locations[index].number} onChange={() => this.handleChangeInput(index, "number", this)}/><br/>
+                      <input type="text" name={index} value={this.state.locations[index].location} onChange={this.handleChangeLocation}/><br/>
+                      <input type="number" name={index} value={this.state.locations[index].number} onChange={this.handleChangeNumber}/><br/>
                       </div>
                   )
               })}
-
-              <button onClick={this.addLoc.bind(this)}>+</button>
+              <button onClick={this.addLoc.bind(this)}>+</button><br/>
               <input ref="opportunityCosts" placeholder="Opportunity cost"/><br/>
               <button onClick={this.handleClick.bind(this)}>Add</button>
             </div>
