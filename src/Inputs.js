@@ -37,7 +37,18 @@ export default class Inputs extends Component {
     render() {
         return (
             <div>
-              <input ref="home" placeholder="Home"/><br/>
+              <label htmlFor="pot-house">Adress of potential real estate</label>
+              <div className="input-group">
+                <span className="input-group-addon"><i className="fas fa-map-marker-alt"></i></span>
+                <input id="pot-house" type="text" className="form-control" name="adress" placeholder="Adresse"/><br/>
+              </div>
+
+              <label htmlFor="time-in-money">How much do you value your time in money?</label>
+              <div className="input-group">
+                <span className="input-group-addon"><i className="fas fa-euro-sign"></i></span>
+                <input id="time-in-money" type="text" className="form-control" name="time-in-money" placeholder="Betrag in Euro"/><br/>
+              </div>
+
               <Geosuggest />
               { this.state.locations.map((val, index)=>{
                   return(

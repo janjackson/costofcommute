@@ -10,8 +10,10 @@ class App extends Component {
         <div className="inputContainer">
           <div className="inner-inputContainer">
             <div className="container">
-              <h1>Move house for lower costs of commute</h1>
-              <Inputs/>
+              <div className="slider-content">
+                <h1>Move house for lower costs of commute</h1>
+                <Inputs/>
+              </div>
             </div>
           </div>
         </div>
