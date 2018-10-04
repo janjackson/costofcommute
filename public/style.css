@@ -5,7 +5,7 @@
 
 .site-logo {
     color: #fff;
-    font-weight: 300;
+    font-weight: 300 !important;
     font-size: 20px;
     user-select: none;
 }
@@ -30,6 +30,47 @@ h1 {
     margin-bottom: 35px;
 }
 
+.slider-content {
+    width: fit-content;
+    background: #00796ba1;
+    padding: 40px;
+}
+
+::selection {
+    background: #00796B;
+    color: #fff;
+}
+
+.inputContainer .fas {
+    font-weight: 900;
+    font-size: 20px;
+    margin-top: 7px;
+}
+
+.input-group-addon {
+    background: #FF5722;
+    display: block;
+    align-items: center;
+    text-align: center;
+    padding: 1px 10px;
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    border-top-right-radius: 7px !important;
+    border-bottom-right-radius: 7px !important;
+}
+
+.geosuggest__input {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
 /*
 Primary: #00796B
 Accent: #FF5722
