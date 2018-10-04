@@ -17,7 +17,7 @@ export default class ChartWrapper extends Component {
     */
 
     render() {
-        return <div id="map" className="chart-area" ref="chart" style={{ width: "500px", height: "500px" }} />
+        return <div id="map" className="chart-area" ref="chart" style={{ width: "50%", height: "100vh" }} />
     }
 
 }

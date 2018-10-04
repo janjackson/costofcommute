@@ -11,7 +11,7 @@ import 'leaflet-routing-machine';
 const D3Map = (routes, home, locations) => {
     const map = L.map('map').setView([52.19226, 0.15216], 13);
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}{r}.png', {
+    L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '© OpenStreetMap contributors'
     }).addTo(map);
 
