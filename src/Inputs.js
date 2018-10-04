@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import Geosuggest from 'react-geosuggest' //npm i react-geosuggest
 
 export default class Inputs extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             currentNumber: 1,
             locations: [{ location: '', number: 0 }]
@@ -34,22 +34,24 @@ export default class Inputs extends Component {
         state.locations[index].number = event.target.value
         this.setState(state)
     }
+
     render() {
         return (
             <div>
                 <label htmlFor="pot-house">Adress of potential real estate</label>
                 <div className="input-group">
-                    <span className="input-group-addon"><i className="fas fa-map-marker-alt"></i></span>
-                    <input id="pot-house" type="text" className="form-control" ref="home" placeholder="Adresse" /><br />
+                    <span className="input-group-addon"><i className="fas fa-home"></i></span>
+                    <Geosuggest placeholder="Adress" />
+                    {/*<!--id="pot-house" type="text" className="form-control" ref="home" placeholder="Adress"-->*/}
                 </div>
 
                 <label htmlFor="time-in-money">How much do you value your time in money?</label>
                 <div className="input-group">
                     <span className="input-group-addon"><i className="fas fa-euro-sign"></i></span>
-                    <input id="time-in-money" type="text" className="form-control" ref="opportunityCosts" placeholder="Betrag in Euro" /><br />
+                    <input id="time-in-money" type="text" className="form-control" ref="opportunityCosts" placeholder="Amount of money in Euro" /><br />
                 </div>
 
-                <Geosuggest />
+                <label>Most visited places in one week (e.g. work place or college)</label>
                 {this.state.locations.map((val, index) => {
                     return (
                         <div key={index}>
