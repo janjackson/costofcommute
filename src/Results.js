@@ -1,9 +1,12 @@
 import React from 'react'
+import Map from "./Map";
+import Details from "./Details";
 
-const Results = () => {
+const Results = ({ routes, home, locations }) => {
     return (
         <div>
-            Results go here
+            <Map routes={routes} home={home} locations={locations} />
+            <Details routes={routes} home={home} locations={locations} />
         </div>
     )
 }
