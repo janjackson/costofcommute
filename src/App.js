@@ -44,15 +44,18 @@ class App extends Component {
 		const locations = [
 			{
 				lat: "52.12226",
-				lng: "0.14216"
+				lng: "0.14216",
+				number: 4
 			},
 			{
 				lat: "52.13226",
-				lng: "0.18216"
+				lng: "0.18216",
+				number: 15
 			},
 			{
 				lat: "52.17226",
-				lng: "0.13216"
+				lng: "0.13216",
+				number: 12
 			}
 		]
 
