@@ -34,33 +34,34 @@ export default class Inputs extends Component {
         state.locations[index].number = event.target.value
         this.setState(state)
     }
-    render() {
-        return (
-            <div>
-                <label htmlFor="pot-house">Adress of potential real estate</label>
-                <div className="input-group">
-                    <span className="input-group-addon"><i className="fas fa-map-marker-alt"></i></span>
-                    <input id="pot-house" type="text" className="form-control" ref="home" placeholder="Adresse" /><br />
-                </div>
+  render() {
+    return (
+      <div>
+        <label htmlFor="pot-house">Adress of potential real estate</label>
+        <div className="input-group">
+          <span className="input-group-addon"><i className="fas fa-home"></i></span>
+          <Geosuggest placeholder="Adress"/>
+          {/*<!--id="pot-house" type="text" className="form-control" ref="home" placeholder="Adress"-->*/}
+        </div>
 
-                <label htmlFor="time-in-money">How much do you value your time in money?</label>
-                <div className="input-group">
-                    <span className="input-group-addon"><i className="fas fa-euro-sign"></i></span>
-                    <input id="time-in-money" type="text" className="form-control" ref="opportunityCosts" placeholder="Betrag in Euro" /><br />
-                </div>
+        <label htmlFor="time-in-money">How much do you value your time in money?</label>
+        <div className="input-group">
+          <span className="input-group-addon"><i className="fas fa-euro-sign"></i></span>
+          <input id="time-in-money" type="text" className="form-control" ref="opportunityCosts" placeholder="Amount of money in Euro"/><br/>
+        </div>
 
-                <Geosuggest />
-                {this.state.locations.map((val, index) => {
-                    return (
-                        <div key={index}>
-                            <input type="text" name={index} value={this.state.locations[index].location} onChange={this.handleChangeLocation} /><br />
-                            <input type="number" name={index} value={this.state.locations[index].number} onChange={this.handleChangeNumber} /><br />
-                        </div>
-                    )
-                })}
-                <button onClick={this.addLoc.bind(this)}>+</button><br />
-                <button onClick={this.handleClick.bind(this)}>Add</button>
+        <label>Most visited places in one week (e.g. work place or college)</label>
+        { this.state.locations.map((val, index)=>{
+          return(
+            <div key={index}>
+              <input type="text" name={index} value={this.state.locations[index].location} onChange={this.handleChangeLocation}/><br/>
+              <input type="number" name={index} value={this.state.locations[index].number} onChange={this.handleChangeNumber}/><br/>
             </div>
-        )
-    }
+          )
+        })}
+        <button onClick={this.addLoc.bind(this)}>+</button><br/>
+        <button onClick={this.handleClick.bind(this)}>Add</button>
+      </div>
+    )
+  }
 }
