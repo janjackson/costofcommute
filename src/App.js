@@ -1,39 +1,17 @@
-import React, { Component } from 'react';
-import Inputs from './Inputs'
-import Map from './Map'
-import Results from './Results'
+import React, { Component } from "react";
+import Inputs from "./Inputs";
+import Map from "./Map";
+import Results from "./Results";
 import * as axios from 'axios'
 
 const APP_ID = "EtpnyJ0YvyoJUXBYvZwy"
 const APP_CODE = "7bORO4Qpy16URJkBxelwcg"
-const lat1 = "52.15247"
-const lng1 = "0.14019"
 
 class App extends Component {
-	constructor(props) {
-		super(props)
-
-		this.state = {
-			locations: [
-				{
-					"lat": "52.5148335",
-					"lng": "13.3946117",
-				},
-				{
-					"lat": "52.5048335",
-					"lng": "13.3546117",
-				},
-				{
-					"lat": "52.5248335",
-					"lng": "13.3746117",
-				}
-			]
-		}
-	}
-
-	getRoutes(home, locations) {
+		getRoutes(home, locations) {
 		const lat0 = home.lat
 		const lng0 = home.lng
+		
 		async function getRoute(location) {
 			const lat1 = location.lat
 			const lng1 = location.lng
@@ -58,8 +36,7 @@ class App extends Component {
 
 		return routes
 	}
-
-	render() {
+  render() {
 		const home = {
 			lat: "52.19226",
 			lng: "0.15216"
@@ -80,15 +57,23 @@ class App extends Component {
 		]
 
 		const routes = this.getRoutes(home, locations)
-
-		return (
-			<div>
-				<Inputs />
-				<Map routes={routes} home={home} locations={locations} />
-				<Results />
-			</div>
-		);
-	}
+    return (
+      <div>
+        <div className="inputContainer">
+          <div className="inner-inputContainer">
+            <div className="container">
+              <div className="slider-content">
+                <h1>Move house for lower costs of commute</h1>
+                <Inputs/>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Map routes={routes} home={home} locations={locations} />
+        <Results/>
+      </div>
+    );
+  }
 }
 
 export default App;
