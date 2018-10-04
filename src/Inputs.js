@@ -6,12 +6,12 @@ export default class Inputs extends Component {
         super();
         this.state = {
             currentNumber: 1,
-            locations: [{ location: 'ia', number:0}]
+            locations: [{ location: '', number:0}]
         };
     }
     handleClick(){
         var title = this.refs.home.value
-        var locations = this.state.locations
+        var locations = this.refs.locations
         var opportunityCosts = this.refs.opportunityCosts.value
         console.log('title, loc1name, loc1number ', title, locations, opportunityCosts)
     }
@@ -21,8 +21,11 @@ export default class Inputs extends Component {
             locations: this.state.locations.concat([{ location: '', number:0}])
         });
     }
-    handleChangeName(){
-      console.log('hi');
+    handleChangeInput(index, type){
+      console.log('hi', this);
+      var state = this.state;
+      state.locations[index][type] = this
+      this.setState(state)
     }
     render() {
         return (
@@ -30,10 +33,11 @@ export default class Inputs extends Component {
               <input ref="home" placeholder="Home"/><br/>
               <Geosuggest />
               { this.state.locations.map((val, index)=>{
+
                   return(
-                      <div>
-                      <input ref="{index + 'name'}" onChange={this.handleChangeName(index)} value={ val.name }/><br/>
-                      <input ref={index + "number"} placeholder={val.number}/><br/>
+                      <div key={index}>
+                      <input name="location" type="text" value={this.state.locations[index].location} onChange={() => this.handleChangeInput(index, "location", this)}/><br/>
+                      <input name="number" type="number" value={this.state.locations[index].number} onChange={() => this.handleChangeInput(index, "number", this)}/><br/>
                       </div>
                   )
               })}
