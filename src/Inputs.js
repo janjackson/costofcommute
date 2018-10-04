@@ -40,13 +40,13 @@ export default class Inputs extends Component {
               <label htmlFor="pot-house">Adress of potential real estate</label>
               <div className="input-group">
                 <span className="input-group-addon"><i className="fas fa-map-marker-alt"></i></span>
-                <input id="pot-house" type="text" className="form-control" name="adress" placeholder="Adresse"/><br/>
+                <input id="pot-house" type="text" className="form-control" ref="home" placeholder="Adresse"/><br/>
               </div>
 
               <label htmlFor="time-in-money">How much do you value your time in money?</label>
               <div className="input-group">
                 <span className="input-group-addon"><i className="fas fa-euro-sign"></i></span>
-                <input id="time-in-money" type="text" className="form-control" name="time-in-money" placeholder="Betrag in Euro"/><br/>
+                <input id="time-in-money" type="text" className="form-control" ref="opportunityCosts" placeholder="Betrag in Euro"/><br/>
               </div>
 
               <Geosuggest />
@@ -59,7 +59,6 @@ export default class Inputs extends Component {
                   )
               })}
               <button onClick={this.addLoc.bind(this)}>+</button><br/>
-              <input ref="opportunityCosts" placeholder="Opportunity cost"/><br/>
               <button onClick={this.handleClick.bind(this)}>Add</button>
             </div>
         )
