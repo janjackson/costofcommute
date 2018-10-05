@@ -111,7 +111,15 @@ class App extends Component {
       //const routes = this.getRoutes(home, locations, transport)
 
       if (routes.length === 0) {
-        return <div></div>;
+        return (
+          <div className="inputContainer">
+            <div className="inner-inputContainer">
+              <div className="container">
+                <h1>API request failed</h1>
+              </div>
+            </div>
+          </div>
+        );
       }
 
       return <Results routes={routes} home={home} locations={locations} handleDrag={this.handleDrag.bind(this)}/>;
