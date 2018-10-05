@@ -238,6 +238,21 @@ ol button:hover {
     color: #cecece;
 }
 
+.btn-outline-primary {
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    padding: 5px 40px;
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-outline-primary:hover {
+    color: #0f574c;
+    background-color: #ffffff;
+    border-color: #0f574c;
+}
+
 /*
 Primary: #00796B
 Accent: #FF5722

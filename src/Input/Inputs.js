@@ -68,7 +68,7 @@ export default class Inputs extends Component {
 						<img onClick={this.changeTransport.bind(this)} className="transportImg" src="bus.png" name="public" />
 					</label>
 				</div>
-				<button className="button-primary" onClick={this.formSubmit.bind(this)}>Submit</button>
+				<button className="btn btn-outline-primary" onClick={this.formSubmit.bind(this)}>Submit</button>
 
 			</div>
 		)
