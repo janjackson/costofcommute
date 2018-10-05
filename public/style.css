@@ -240,9 +240,10 @@ ol button:hover {
 
 .btn-outline-primary {
     display: block;
-    margin-top: 20px;
-    width: 100%;
+    margin-top: 30px;
     padding: 5px 40px;
+    float: right;
+    margin-bottom: 20px;
     color: #fff;
     border-color: #fff;
 }
