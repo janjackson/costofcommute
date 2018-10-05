@@ -92,14 +92,15 @@ h1 {
     right: 0;
     max-height: 25em;
     padding: 0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 7px #484848;
     margin-top: -1px;
     background: #fff;
-    border: 2px solid #267dc0;
     border-top-width: 0;
     overflow-x: hidden;
     overflow-y: auto;
     list-style: none;
-    z-index: 5;
+    z-index: 500;
     -webkit-transition: max-height 0.2s, border 0.2s;
     transition: max-height 0.2s, border 0.2s;
 }
@@ -137,6 +138,67 @@ h1 {
 .geosuggest__item span {
     color: #00796B;
 }
+
+.form-control-sg {
+    border-radius: 7px !important;
+    display: block;
+    width: 48px;
+    display: inline-block;
+    padding: 5px;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    margin-right: 5px;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+label {
+    font-weight: bold;
+}
+
+.sg {
+    display: inline-block !important;
+    width: fit-content;
+}
+
+.sg .geosuggest, .sg .input-group-addon{
+    display: inline-flex;
+    width: fit-content;
+}
+
+.sg .fas {
+    margin-bottom: 9px;
+}
+
+.sg .input-group-addon {
+    margin-left: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+    opacity: 1;
+
+}
+
+.button-primary {
+    background: #FF5722;
+    -webkit-appearance: button-bevel;
+    border-radius: 7px;
+    padding: 6px 20px;
+    margin-left: 10px;
+    color: #fff
+}
+.button-primary:hover {
+    background: #ff8b62;
+    color: #fff;
+    cursor: pointer;
+}
+
 /*
 Primary: #00796B
 Accent: #FF5722
