@@ -70,13 +70,6 @@ export default class Places extends Component {
 				<input onChange={this.updateTimesPerWeek.bind(this)} defaultValue="1" min="1" className="form-control-sg" type="number" />
 				<span> time(s)/week to </span>
 
-				<div className="input-group sg">
-					<span className="input-group-addon"><i className="fas fa-map-marker-alt"></i></span>
-					<Geosuggest placeholder="Address"
-						onSuggestSelect={this.onSuggestSelect.bind(this)} />
-					<button className="button-primary" onClick={this.addPlace.bind(this)}>Add</button>
-				</div>
-
 				<ol>{listElements}</ol>
 			</div>
 		)

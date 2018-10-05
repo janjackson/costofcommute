@@ -11,6 +11,10 @@ export default class Inputs extends Component {
         };
     }
 
+    changeTransport(event){
+      console.log('hi', event.target.name);
+    }
+
   render() {
     return (
       <div>
@@ -28,7 +32,24 @@ export default class Inputs extends Component {
 
         <label>Add places you need to go to (e.g. work place or college)</label>
         <Places/>
-
+        <div className="form-check-inline">
+              <label className="transportOptionsLabel radio" htmlFor="exampleRadios1">
+                <input className="form-check-input" type="radio" name="transportRadio" id="exampleRadios1"/>
+                <img onClick={this.changeTransport.bind(this)} className="transportImg" src="bicycle.png" name="bike"/>
+              </label>
+          </div>
+          <div className="form-check-inline">
+              <label className="transportOptionsLabel radio" htmlFor="exampleRadios2">
+                <input className="form-check-input" type="radio" name="transportRadio" id="exampleRadios2"/>
+                <img onClick={this.changeTransport.bind(this)} className="transportImg" src="car.png" name="car"/>
+              </label>
+          </div>
+          <div className="form-check-inline">
+              <label className="transportOptionsLabel radio" htmlFor="exampleRadios3">
+                <input className="form-check-input" type="radio" name="transportRadio" id="exampleRadios3"/>
+                <img onClick={this.changeTransport.bind(this)} className="transportImg" src="bus.png" name="public"/>
+              </label>
+        </div>
       </div>
     )
   }
