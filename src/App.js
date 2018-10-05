@@ -43,7 +43,7 @@ class App extends Component {
 				}
 			],
 			transport: "car", // car, pedestrian, publicTransport, bicycle
-			inputsSubmitted: true
+			inputsSubmitted: false
 		})
 	}
 

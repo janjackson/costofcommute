@@ -40,12 +40,10 @@ const D3Map = (routes, home, locations, handleDrag) => {
     L.marker([home.lat, home.lng], {
         icon: homeIcon,
         draggable: true,
-        autoPan: true,
-        dragend: (e) => {
-            console.log(e)
-            return e
-        }
-    }).addTo(map)
+        autoPan: true
+    }).addTo(map).on("dragend", (e) => {
+        console.log(e.target._latLng)
+    })
 
 }
 
