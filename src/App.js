@@ -4,12 +4,7 @@ import Map from "./Map";
 import Results from "./Results";
 import * as axios from "axios";
 
-//1
-// const APP_ID = "EtpnyJ0YvyoJUXBYvZwy";
-// const APP_CODE = "7bORO4Qpy16URJkBxelwcg";
-//2
-const APP_ID = "PdV54wPlwREqhcaWUQCb";
-const APP_CODE = "_N40fjo9AzORNWuMIoYWvg";
+
 
 
 class App extends Component {
@@ -38,14 +33,9 @@ class App extends Component {
       const lat1 = location.lat;
       const lng1 = location.lng;
 
+
       const route = axios.get(`
-			https://route.api.here.com/routing/7.2/calculateroute.json
-				?app_id=${APP_ID}
-				&app_code=${APP_CODE}
-				&waypoint0=geo!${lat0},${lng0}
-				&waypoint1=geo!${lat1},${lng1}
-				&mode=fastest;${transport};traffic:disabled
-				&routeAttributes=summary,shape,boundingBox
+			https://route.api.here.com/routing/7.2/calculateroute.json?app_id=F4Qbbv5z6EaMqV6LZK25&app_code=fdGIpiNhc8MiREb-sXXlvA&waypoint0=geo!${lat0},${lng0}&waypoint1=geo!${lat1},${lng1}&mode=fastest;${transport};traffic:disabled&routeAttributes=summary,shape,boundingBox
 			`);
 
       return route; //.data.response.route[0]

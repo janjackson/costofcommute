@@ -24,9 +24,15 @@ export default class Inputs extends Component {
 	}
 
 	updateHome(home) {
-		this.setState({
-			home: home.location
-		})
+	  try {
+      this.setState({
+        home: home.location
+      })
+    }
+    
+    catch (e) {
+      console.log("Error caught")
+    }
 	}
 
 	formSubmit() {
