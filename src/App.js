@@ -10,19 +10,20 @@ const APP_CODE = "7bORO4Qpy16URJkBxelwcg"
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {
-			home: {},
-			locations: [],
-			transport: "",
-			routes: [],
-			inputsSubmitted: false
-		}
-		//this.state = {"home":{"lat":52.4910407,"lng":13.3963483},"locations":[{"address":"10178 Berlin, Germany","number":"5","lat":52.5219184,"lng":13.413214700000026},{"address":"Rheinsberger Str. 76/77, 10115 Berlin, Germany","number":"8","lat":52.53684,"lng":13.394929999999931},{"address":"Hermannpl., Berlin, Germany","number":"5","lat":52.4870183,"lng":13.42498409999996}],"transport":"car","routes":[],"inputsSubmitted":true}
+		/* 		this.state = {
+					home: {},
+					locations: [],
+					transport: "",
+					routes: [],
+					inputsSubmitted: false
+				} */
+		this.state = { "home": { "lat": 52.4910407, "lng": 13.3963483 }, "locations": [{ "address": "10178 Berlin, Germany", "number": "5", "lat": 52.5219184, "lng": 13.413214700000026 }, { "address": "Rheinsberger Str. 76/77, 10115 Berlin, Germany", "number": "8", "lat": 52.53684, "lng": 13.394929999999931 }, { "address": "Hermannpl., Berlin, Germany", "number": "5", "lat": 52.4870183, "lng": 13.42498409999996 }], "transport": "car", "routes": [], "inputsSubmitted": true }
 	}
 
 	// We'll do this with inputs later
 	componentDidMount() {
-
+		const { home, locations, transport } = this.state
+		this.getRoutes(home, locations, transport)
 	}
 
 	async getRoutes(home, locations, transport) {
@@ -45,20 +46,6 @@ class App extends Component {
 
 			return route //.data.response.route[0]
 		}
-
-/* 		const promiseArray = linksArray.map(url => axios.get(url));
-
-		try {
-
-			const gistsDescriptions = (
-				await Promise.all(promiseArray)
-			).map(res => res.data)
-
-			this.setState({ gistsDescriptions })
-
-		} catch (error) {
-			console.error(error)
-		} */
 
 		const promiseArray = locations.map((location) => {
 			return getRoute(location)
@@ -88,6 +75,9 @@ class App extends Component {
 				lat: newHome.lat,
 				lng: newHome.lng
 			}
+		}, () => {
+			console.log("Updating")
+			this.getRoutes(this.state.home, this.state.locations, this.state.transport)
 		})
 	}
 
@@ -106,15 +96,16 @@ class App extends Component {
 
 	renderContent() {
 		if (this.state.inputsSubmitted) {
-			const { home, locations, transport, routes } = this.state
 
 			//const routes = this.getRoutes(home, locations, transport)
 
-			if (routes.length === 0) {
+			if (this.state.routes.length === 0) {
 				return <div></div>
 			}
 
-			return <Results routes={routes} home={home} locations={locations} handleDrag={this.handleDrag.bind(this)} />
+			console.log("HI")
+
+			return <Results routes={this.state.routes} home={this.state.home} locations={this.state.locations} handleDrag={this.handleDrag.bind(this)} />
 		}
 		else {
 			return (
@@ -132,8 +123,9 @@ class App extends Component {
 		}
 	}
 
-	
+
 	render() {
+		console.log(this.state)
 		return (
 			<div>
 				{this.renderContent()}

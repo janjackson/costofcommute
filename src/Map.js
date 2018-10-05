@@ -7,14 +7,13 @@ export default class ChartWrapper extends Component {
     }
 
     componentDidMount() {
-        new LeafletMap(this.props.routes, this.props.home, this.props.locations, this.props.handleDrag)
+        this._chart = new LeafletMap(this.props.routes, this.props.home, this.props.locations, this.props.handleDrag)
     }
 
-    /* 
-    componentShouldReceiveProps(nextProps) {
-        // this._chart.update()
+    componentWillReceiveProps(nextProps) {
+        console.log("YUP", nextProps)
+        this._chart.update(nextProps.locations, nextProps.routes)
     }
-    */
 
     render() {
         return <div id="map" className="chart-area" ref="chart" style={{ width: "50%", height: "100vh" }} />

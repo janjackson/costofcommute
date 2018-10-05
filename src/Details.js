@@ -12,16 +12,22 @@ export default class extends Component {
     renderTotals(routes, locations) {
         const distance = (routes.reduce((acc, cur, i) => {
             return acc + (cur.summary.distance * locations[i].number)
-        }, 0) / 1000).toFixed(1)
+        }, 0) * 4.3 / 1000).toFixed(1)
 
         const time = (routes.reduce((acc, cur, i) => {
             return acc + (cur.summary.baseTime * locations[i].number)
-        }, 0) / (60 * 60)).toFixed(1)
+        }, 0) / (60 * 60 / 4.3)).toFixed(1)
 
         this.setState({
             time,
             distance
         })
+    }
+
+    componentWillReceiveProps() {
+        const { routes, home, locations } = this.props
+
+        this.renderTotals(routes, locations)
     }
 
     componentDidMount() {
