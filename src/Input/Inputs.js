@@ -18,7 +18,6 @@ export default class Inputs extends Component {
         <div className="input-group">
           <span className="input-group-addon"><i className="fas fa-home"></i></span>
           <Geosuggest placeholder="Address"/>
-          {/*<!--id="pot-house" type="text" className="form-control" ref="home" placeholder="Adress"-->*/}
         </div>
 
         <label htmlFor="time-in-money">How much do you value one hour of your time in money?</label>
