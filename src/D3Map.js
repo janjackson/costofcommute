@@ -2,13 +2,7 @@ import * as d3 from 'd3'
 import L from 'leaflet'
 import 'leaflet-routing-machine';
 
-/* 
-    Expected inputs:
-    element - ID of element to append map to
-    home - Object - { lat: ###, lng: ### }
-    locations - Array - [{ lat: ###, lng: ### }, { lat: ###, lng: ### }, { lat: ###, lng: ### }, ...] 
-*/
-const D3Map = (routes, home, locations) => {
+const D3Map = (routes, home, locations, handleDrag) => {
     const map = L.map('map').setView([52.19226, 0.15216], 13);
 
     L.tileLayer('https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png', {
@@ -44,8 +38,12 @@ const D3Map = (routes, home, locations) => {
     });
 
     L.marker([home.lat, home.lng], {
-        icon: homeIcon
-    }).addTo(map);
+        icon: homeIcon,
+        draggable: true,
+        autoPan: true
+    }).addTo(map).on("dragend", (e) => {
+        console.log(e.target._latLng)
+    })
 
 }
 
