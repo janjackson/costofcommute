@@ -11,7 +11,7 @@ class App extends Component {
 		getRoutes(home, locations) {
 		const lat0 = home.lat
 		const lng0 = home.lng
-		
+
 		async function getRoute(location) {
 			const lat1 = location.lat
 			const lng1 = location.lng
