@@ -94,34 +94,54 @@ class App extends Component {
 		})
 	}
 
-	renderContent() {
-		if (this.state.inputsSubmitted) {
+  renderContent() {
+    if (this.state.inputsSubmitted) {
+      const { home, locations, transport, routes } = this.state;
 
-			//const routes = this.getRoutes(home, locations, transport)
+      //const routes = this.getRoutes(home, locations, transport)
 
-			if (this.state.routes.length === 0) {
-				return <div></div>
-			}
+      if (routes.length === 0) {
+        return (
+          <div className="inputContainer">
+            <div className="inner-inputContainer">
+              <div className="container">
+                <h1>Urbanizer</h1>
+                <h2>Find a place that saves you valuable life time</h2>
 
-			console.log("HI")
+              </div>
+            </div>
+          </div>
+        );
+      }
 
-			return <Results routes={this.state.routes} home={this.state.home} locations={this.state.locations} handleDrag={this.handleDrag.bind(this)} />
-		}
-		else {
-			return (
-				<div className="inputContainer">
-					<div className="inner-inputContainer">
-						<div className="container">
-							<div className="slider-content">
-								<h1>Move house for lower costs of commute</h1>
-								<Inputs dataSubmitted={this.dataSubmitted.bind(this)} />
-							</div>
-						</div>
-					</div>
-				</div>
-			)
-		}
-	}
+      return(
+        <div className="inputContainer">
+          <div className="inner-inputContainer">
+            <div className="container">
+              <h1>Urbanizer</h1>
+              <h2>Find a place that saves you valuable life time</h2>
+              <Results routes={routes} home={home} locations={locations} handleDrag={this.handleDrag.bind(this)}/>;
+            </div>
+          </div>
+        </div>
+      );
+    }
+    else {
+      return (
+        <div className="inputContainer">
+          <div className="inner-inputContainer">
+            <div className="container">
+              <h1>Urbanizer</h1>
+              <h2>Find a place that saves you valuable life time</h2>
+              <div className="slider-content">
+                <Inputs dataSubmitted={this.dataSubmitted.bind(this)}/>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+  }
 
 
 	render() {

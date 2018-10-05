@@ -224,6 +224,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 }
 
+#map {
+    width: 100% !important;
+    height: 380px !important;
+    margin-top: 45px !important;
+    position: relative !important;
+    outline: none;
+}
+
 .button-primary {
     background: #FF5722;
     -webkit-appearance: button-bevel;
