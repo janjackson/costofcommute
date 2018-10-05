@@ -8,22 +8,21 @@ const APP_ID = "EtpnyJ0YvyoJUXBYvZwy"
 const APP_CODE = "7bORO4Qpy16URJkBxelwcg"
 
 class App extends Component {
-		getRoutes(home, locations) {
+	getRoutes(home, locations, transport) {
 		const lat0 = home.lat
 		const lng0 = home.lng
-		
+
 		async function getRoute(location) {
 			const lat1 = location.lat
 			const lng1 = location.lng
 
-			// car, pedestrian, publicTransport, bicycle
 			const route = await axios.get(`
 			https://route.api.here.com/routing/7.2/calculateroute.json
 				?app_id=${APP_ID}
 				&app_code=${APP_CODE}
 				&waypoint0=geo!${lat0},${lng0}
 				&waypoint1=geo!${lat1},${lng1}
-				&mode=fastest;car;traffic:disabled
+				&mode=fastest;${transport};traffic:disabled
 				&routeAttributes=summary,shape,boundingBox
 			`)
 
@@ -36,7 +35,7 @@ class App extends Component {
 
 		return routes
 	}
-  render() {
+	render() {
 		const home = {
 			lat: "52.19226",
 			lng: "0.15216"
@@ -58,24 +57,25 @@ class App extends Component {
 				number: 12
 			}
 		]
+		const transport = "car" // car, pedestrian, publicTransport, bicycle
 
-		const routes = this.getRoutes(home, locations)
-    return (
-      <div>
-        <div className="inputContainer">
-          <div className="inner-inputContainer">
-            <div className="container">
-              <div className="slider-content">
-                <h1>Move house for lower costs of commute</h1>
-                <Inputs/>
-              </div>
-            </div>
-          </div>
-        </div>
-        <Results routes={routes} home={home} locations={locations} />
-      </div>
-    );
-  }
+		const routes = this.getRoutes(home, locations, transport)
+		return (
+			<div>
+				<div className="inputContainer">
+					<div className="inner-inputContainer">
+						<div className="container">
+							<div className="slider-content">
+								<h1>Move house for lower costs of commute</h1>
+								<Inputs />
+							</div>
+						</div>
+					</div>
+				</div>
+				<Results routes={routes} home={home} locations={locations} />
+			</div>
+		);
+	}
 }
 
 export default App;
