@@ -29,7 +29,7 @@ export default class Inputs extends Component {
         home: home.location
       })
     }
-    
+
     catch (e) {
       console.log("Error caught")
     }
@@ -59,7 +59,7 @@ export default class Inputs extends Component {
 				<div className="form-check-inline">
 					<label className="transportOptionsLabel radio" htmlFor="exampleRadios1">
 						<input className="form-check-input" type="radio" name="transportRadio" id="exampleRadios1" />
-						<img onClick={this.changeTransport.bind(this)} className="transportImg" src="bicycle.png" name="bike" />
+						<img onClick={this.changeTransport.bind(this)} className="transportImg" src="bicycle.png" name="bicycle" />
 					</label>
 				</div>
 				<div className="form-check-inline">
@@ -71,7 +71,7 @@ export default class Inputs extends Component {
 				<div className="form-check-inline">
 					<label className="transportOptionsLabel radio" htmlFor="exampleRadios3">
 						<input className="form-check-input" type="radio" name="transportRadio" id="exampleRadios3" />
-						<img onClick={this.changeTransport.bind(this)} className="transportImg" src="bus.png" name="public" />
+						<img onClick={this.changeTransport.bind(this)} className="transportImg" src="bus.png" name="publicTransport" />
 					</label>
 				</div>
 				<button className="btn btn-outline-primary" onClick={this.formSubmit.bind(this)}>Submit</button>
