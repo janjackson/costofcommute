@@ -6,10 +6,16 @@ import Affiliate from "./Affiliate";
 const Results = ({ routes, home, locations, handleDrag }) => {
   console.log(home);
   return (
-    <div>
-      <Details routes={routes} home={home} locations={locations}/>
-      <Affiliate/>
-      <Map routes={routes} home={home} locations={locations} handleDrag={handleDrag}/>
+    <div className="carrier">
+      <div class="left">
+        <div class="pos">
+        <Details routes={routes} home={home} locations={locations}/>
+        <Affiliate/>
+        </div>
+      </div>
+      <div class="right">
+        <Map routes={routes} home={home} locations={locations} handleDrag={handleDrag}/>
+      </div>
     </div>
   );
 };

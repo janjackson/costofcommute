@@ -226,8 +226,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 #map {
     width: 100% !important;
-    height: 380px !important;
-    margin-top: 45px !important;
+    height: 100% !important;
+    margin-top: 0px !important;
     position: relative !important;
     outline: none;
 }
@@ -276,6 +276,31 @@ ol button:hover {
 body, #root, .inputContainer, .inner-inputContainer{
     height: 100vh;
     overflow: hidden;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.left {
+    width: 50%;
+    height: 100%;
+}
+
+.right {
+    width: 50%;
+    height: 100%;
+}
+
+.carrier {
+    display: flex;
+    height: 100%;
+}
+
+.pos {
+    width: 50%;
+    position: absolute;
+    top: 40%;
 }
 
 /*

@@ -116,12 +116,8 @@ class App extends Component {
 
       return(
         <div className="inputContainer">
-          <div className="inner-inputContainer">
-            <div className="container">
-              <h1>Urbanizer</h1>
-              <h2>Find a place that saves you valuable life time</h2>
+          <div className="inner-inputContainer no-padding" >
               <Results routes={routes} home={home} locations={locations} handleDrag={this.handleDrag.bind(this)}/>;
-            </div>
           </div>
         </div>
       );
@@ -131,7 +127,7 @@ class App extends Component {
         <div className="inputContainer">
           <div className="inner-inputContainer">
             <div className="container">
-              <h1>Urbanizer</h1>
+              <h1>QuickR</h1>
               <h2>Find a place that saves you valuable life time</h2>
               <div className="slider-content">
                 <Inputs dataSubmitted={this.dataSubmitted.bind(this)}/>
