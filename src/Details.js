@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react'
+// import { react-router } from 'react-router';
 
 export default class extends Component {
     constructor(props) {
@@ -12,11 +13,11 @@ export default class extends Component {
     renderTotals(routes, locations) {
         const distance = (routes.reduce((acc, cur, i) => {
             return acc + (cur.summary.distance * locations[i].number)
-        }, 0) * 4.3 / 1000).toFixed(1)
+        }, 0) * 2 * 4.3 / 1000).toFixed(1)
 
         const time = (routes.reduce((acc, cur, i) => {
             return acc + (cur.summary.baseTime * locations[i].number)
-        }, 0) / (60 * 60 / 4.3)).toFixed(1)
+        }, 0) / (60 * 60 / 2 * 4.3)).toFixed(1)
 
         this.setState({
             time,
@@ -24,8 +25,8 @@ export default class extends Component {
         })
     }
 
-    componentWillReceiveProps() {
-        const { routes, home, locations } = this.props
+    componentWillReceiveProps(nextProps) {
+        const { routes, home, locations } = nextProps
 
         this.renderTotals(routes, locations)
     }
@@ -36,9 +37,15 @@ export default class extends Component {
         this.renderTotals(routes, locations)
     }
 
+    reloadPage(){
+        console.log('reload');
+        window.location.reload();
+    }
+
     render() {
         return (
             <div align="center">
+                <button onClick={this.reloadPage}>Back</button>
                 <h2>Your cost of commute is:</h2>
                 <Fragment>
                     <h3>{this.state.distance}km/month</h3>
