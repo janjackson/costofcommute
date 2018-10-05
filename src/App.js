@@ -2,10 +2,7 @@ import React, { Component } from "react";
 import Inputs from "./Input/Inputs";
 import Map from "./Map";
 import Results from "./Results";
-import * as axios from 'axios'
-
-const APP_ID = "EtpnyJ0YvyoJUXBYvZwy"
-const APP_CODE = "7bORO4Qpy16URJkBxelwcg"
+import * as axios from "axios";
 
 class App extends Component {
 	constructor(props) {
