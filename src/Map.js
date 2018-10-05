@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import D3Map from './D3Map'
+import LeafletMap from './D3Map';
 
 export default class ChartWrapper extends Component {
     shouldComponentUpdate() {
@@ -7,7 +7,7 @@ export default class ChartWrapper extends Component {
     }
 
     componentDidMount() {
-        D3Map(this.props.routes, this.props.home, this.props.locations, this.props.handleDrag)
+        new LeafletMap(this.props.routes, this.props.home, this.props.locations, this.props.handleDrag)
     }
 
     /* 

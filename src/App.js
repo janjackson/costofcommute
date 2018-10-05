@@ -14,6 +14,7 @@ class App extends Component {
 			home: {},
 			locations: [],
 			transport: "",
+			routes: [],
 			inputsSubmitted: false
 		}
 	}
@@ -44,18 +45,21 @@ class App extends Component {
 			],
 			transport: "car", // car, pedestrian, publicTransport, bicycle
 			inputsSubmitted: false
+		}, () => {
+			const { home, locations, transport } = this.state
+			this.getRoutes(home, locations, transport)
 		})
 	}
 
-	getRoutes(home, locations, transport) {
+	async getRoutes(home, locations, transport) {
 		const lat0 = home.lat
 		const lng0 = home.lng
 
-		async function getRoute(location) {
+		function getRoute(location) {
 			const lat1 = location.lat
 			const lng1 = location.lng
 
-			const route = await axios.get(`
+			const route = axios.get(`
 			https://route.api.here.com/routing/7.2/calculateroute.json
 				?app_id=${APP_ID}
 				&app_code=${APP_CODE}
@@ -65,27 +69,65 @@ class App extends Component {
 				&routeAttributes=summary,shape,boundingBox
 			`)
 
-			return route.data.response.route[0]
+			return route //.data.response.route[0]
 		}
 
-		const routes = locations.map((location) => {
+/* 		const promiseArray = linksArray.map(url => axios.get(url));
+
+		try {
+
+			const gistsDescriptions = (
+				await Promise.all(promiseArray)
+			).map(res => res.data)
+
+			this.setState({ gistsDescriptions })
+
+		} catch (error) {
+			console.error(error)
+		} */
+
+		const promiseArray = locations.map((location) => {
 			return getRoute(location)
 		})
 
-		return routes
+		try {
+			const routes = (
+				await Promise.all(promiseArray)
+			).map(res => res.data.response.route[0])
+
+			console.log(routes)
+
+			this.setState({
+				routes
+			})
+		}
+		catch (error) {
+			console.log(error)
+		}
+
 	}
 
 	// Update our home point when the home marker gets dragged
-	handleDrag(e) {
-		console.log(e)
+	handleDrag(newHome) {
+		this.setState({
+			home: {
+				lat: newHome.lat,
+				lng: newHome.lng
+			}
+		})
 	}
 
 	renderContent() {
 		if (this.state.inputsSubmitted) {
-			const { home, locations, transport } = this.state
+			const { home, locations, transport, routes } = this.state
 
-			const routes = this.getRoutes(home, locations, transport)
-			return <Results routes={routes} home={home} locations={locations} handleDrag={this.handleDrag} />
+			//const routes = this.getRoutes(home, locations, transport)
+
+			if (routes.length === 0) {
+				return <div></div>
+			}
+
+			return <Results routes={routes} home={home} locations={locations} handleDrag={this.handleDrag.bind(this)} />
 		}
 		else {
 			return (

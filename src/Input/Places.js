@@ -45,10 +45,24 @@ export default class Places extends Component {
 
 	}
 
+  deleteItem = (index) => {
+    const movingItem = this.state.listItems[index];
+    console.log(movingItem);
+		var updatedList = this.state.listItems;
+    updatedList.splice(index,1);
+    this.setState({
+      listItems: updatedList
+    })
+
+  }
+
+
+
 
 	render() {
 		const listElements = this.state.listItems.map((item, index) => {
-			return <li key={index}>{item.address}</li>
+			return <li key={index}>{item.address} ({item.number} times/week) <button onClick={() => this.deleteItem(index)}><i
+        className="fas fa-trash"></i></button></li>
 		})
 
 		return (
