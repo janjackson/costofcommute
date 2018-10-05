@@ -17,38 +17,12 @@ class App extends Component {
 			routes: [],
 			inputsSubmitted: false
 		}
+		//this.state = {"home":{"lat":52.4910407,"lng":13.3963483},"locations":[{"address":"10178 Berlin, Germany","number":"5","lat":52.5219184,"lng":13.413214700000026},{"address":"Rheinsberger Str. 76/77, 10115 Berlin, Germany","number":"8","lat":52.53684,"lng":13.394929999999931},{"address":"Hermannpl., Berlin, Germany","number":"5","lat":52.4870183,"lng":13.42498409999996}],"transport":"car","routes":[],"inputsSubmitted":true}
 	}
 
 	// We'll do this with inputs later
 	componentDidMount() {
-		this.setState({
-			home: {
-				lat: "52.19226",
-				lng: "0.15216"
-			},
-			locations: [
-				{
-					lat: "52.12226",
-					lng: "0.14216",
-					number: 4
-				},
-				{
-					lat: "52.13226",
-					lng: "0.18216",
-					number: 15
-				},
-				{
-					lat: "52.17226",
-					lng: "0.13216",
-					number: 12
-				}
-			],
-			transport: "car", // car, pedestrian, publicTransport, bicycle
-			inputsSubmitted: false
-		}, () => {
-			const { home, locations, transport } = this.state
-			this.getRoutes(home, locations, transport)
-		})
+
 	}
 
 	async getRoutes(home, locations, transport) {
@@ -117,6 +91,19 @@ class App extends Component {
 		})
 	}
 
+	dataSubmitted({ home, locations, transport }) {
+		this.setState({
+			home,
+			locations,
+			transport,
+			inputsSubmitted: true
+		}, () => {
+			console.log(this.state)
+			const { home, locations, transport } = this.state
+			this.getRoutes(home, locations, transport)
+		})
+	}
+
 	renderContent() {
 		if (this.state.inputsSubmitted) {
 			const { home, locations, transport, routes } = this.state
@@ -136,7 +123,7 @@ class App extends Component {
 						<div className="container">
 							<div className="slider-content">
 								<h1>Move house for lower costs of commute</h1>
-								<Inputs />
+								<Inputs dataSubmitted={this.dataSubmitted.bind(this)} />
 							</div>
 						</div>
 					</div>
@@ -145,6 +132,7 @@ class App extends Component {
 		}
 	}
 
+	
 	render() {
 		return (
 			<div>

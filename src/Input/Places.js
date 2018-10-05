@@ -35,14 +35,16 @@ export default class Places extends Component {
 		var singleItem = {
 			address: this.state.currentAdress,
 			number: this.state.currentTimePerWeek,
-			location: this.state.currentCoordinate
+			lat: this.state.currentCoordinate.lat,
+			lng: this.state.currentCoordinate.lng
 		};
 		var newItems = this.state.listItems.concat([singleItem])
 
 		this.setState({
 			listItems: newItems
+		}, () => {
+			this.props.mirrorState(this.state.listItems)
 		})
-
 	}
 
 	deleteItem = (index) => {
@@ -56,12 +58,7 @@ export default class Places extends Component {
 
 	}
 
-
-
-
-	render() {
-
-		
+	render() {	
 		const listElements = this.state.listItems.map((item, index) => {
 			return <li key={index}>{item.address} ({item.number} times/week) <button onClick={() => this.deleteItem(index)}><i
 				className="fas fa-trash"></i></button></li>
