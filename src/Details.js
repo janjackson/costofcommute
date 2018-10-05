@@ -1,4 +1,5 @@
 import React, { Fragment, Component } from 'react'
+// import { react-router } from 'react-router';
 
 export default class extends Component {
     constructor(props) {
@@ -36,9 +37,15 @@ export default class extends Component {
         this.renderTotals(routes, locations)
     }
 
+    reloadPage(){
+        console.log('reload');
+        window.location.reload();
+    }
+
     render() {
         return (
-            <div>
+            <div align="center">
+                <button onClick={this.reloadPage}>Back</button>
                 <h2>Your cost of commute is:</h2>
                 <Fragment>
                     <h3>{this.state.distance}km/month</h3>
