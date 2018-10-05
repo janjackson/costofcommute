@@ -45,24 +45,26 @@ export default class Places extends Component {
 
 	}
 
-  deleteItem = (index) => {
-    const movingItem = this.state.listItems[index];
-    console.log(movingItem);
+	deleteItem = (index) => {
+		const movingItem = this.state.listItems[index];
+		console.log(movingItem);
 		var updatedList = this.state.listItems;
-    updatedList.splice(index,1);
-    this.setState({
-      listItems: updatedList
-    })
+		updatedList.splice(index, 1);
+		this.setState({
+			listItems: updatedList
+		})
 
-  }
+	}
 
 
 
 
 	render() {
+
+		
 		const listElements = this.state.listItems.map((item, index) => {
 			return <li key={index}>{item.address} ({item.number} times/week) <button onClick={() => this.deleteItem(index)}><i
-        className="fas fa-trash"></i></button></li>
+				className="fas fa-trash"></i></button></li>
 		})
 
 		return (
@@ -70,6 +72,12 @@ export default class Places extends Component {
 				<input onChange={this.updateTimesPerWeek.bind(this)} defaultValue="1" min="1" className="form-control-sg" type="number" />
 				<span> time(s)/week to </span>
 
+				<div className="input-group sg">
+					<span className="input-group-addon"><i className="fas fa-map-marker-alt"></i></span>
+					<Geosuggest placeholder="Address"
+						onSuggestSelect={this.onSuggestSelect.bind(this)} />
+					<button className="button-primary" onClick={this.addPlace.bind(this)}>Add</button>
+				</div>
 				<ol>{listElements}</ol>
 			</div>
 		)
