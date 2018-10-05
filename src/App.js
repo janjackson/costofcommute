@@ -4,8 +4,13 @@ import Map from "./Map";
 import Results from "./Results";
 import * as axios from "axios";
 
-const APP_ID = "EtpnyJ0YvyoJUXBYvZwy";
-const APP_CODE = "7bORO4Qpy16URJkBxelwcg";
+//1
+// const APP_ID = "EtpnyJ0YvyoJUXBYvZwy";
+// const APP_CODE = "7bORO4Qpy16URJkBxelwcg";
+//2
+const APP_ID = "PdV54wPlwREqhcaWUQCb";
+const APP_CODE = "_N40fjo9AzORNWuMIoYWvg";
+
 
 class App extends Component {
   constructor(props) {
