@@ -303,6 +303,14 @@ body, #root, .inputContainer, .inner-inputContainer{
     top: 40%;
 }
 
+.back {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    color: #fff;
+    background: transparent;
+}
+
 /*
 Primary: #00796B
 Accent: #FF5722

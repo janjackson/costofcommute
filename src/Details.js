@@ -45,7 +45,7 @@ export default class extends Component {
     render() {
         return (
             <div align="center">
-                <button onClick={this.reloadPage}>Back</button>
+                <a className="back" href="/"><i className="fas fa-arrow-left"></i></a>
                 <h2>Your cost of commute is:</h2>
                 <Fragment>
                     <h3>{this.state.distance}km/month</h3>
