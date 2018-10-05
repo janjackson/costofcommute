@@ -44,7 +44,7 @@ class App extends Component {
 				}
 			],
 			transport: "car", // car, pedestrian, publicTransport, bicycle
-			inputsSubmitted: false
+			inputsSubmitted: true
 		}, () => {
 			const { home, locations, transport } = this.state
 			this.getRoutes(home, locations, transport)
