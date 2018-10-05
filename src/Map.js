@@ -7,7 +7,7 @@ export default class ChartWrapper extends Component {
     }
 
     componentDidMount() {
-        D3Map(this.props.routes, this.props.home, this.props.locations)
+        D3Map(this.props.routes, this.props.home, this.props.locations, this.props.handleDrag)
     }
 
     /* 
