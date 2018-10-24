@@ -10,7 +10,6 @@ const Results = ({ routes, home, locations, handleDrag }) => {
       <div class="left">
         <div class="pos">
         <Details routes={routes} home={home} locations={locations}/>
-        <Affiliate/>
         </div>
       </div>
       <div class="right">

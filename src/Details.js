@@ -51,7 +51,7 @@ export default class extends Component {
                     <h3>{this.state.distance}km/month</h3>
                     <h3>{this.state.time}h/month</h3>
                 </Fragment>
-                <p>Another location might save you money.</p>
+                <p className="alternative">Another location might save you money.</p>
             </div>
         )
     }

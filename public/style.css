@@ -316,6 +316,10 @@ body, #root, .inputContainer, .inner-inputContainer{
 
 }
 
+.alternative {
+    margin-top: 20px;
+}
+
 /*
 Primary: #00796B
 Accent: #FF5722
