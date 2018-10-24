@@ -17,7 +17,7 @@ export default class extends Component {
 
         const time = (routes.reduce((acc, cur, i) => {
             return acc + (cur.summary.baseTime * locations[i].number)
-        }, 0) / (60 * 60 / 2 * 4.3)).toFixed(1)
+        }, 0) / (60 * 60 / (2 * 4.3))).toFixed(1)
 
         this.setState({
             time,
