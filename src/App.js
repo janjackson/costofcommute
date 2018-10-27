@@ -105,9 +105,7 @@ class App extends Component {
           <div className="inputContainer">
             <div className="inner-inputContainer">
               <div className="container">
-                <h1>Urbanizer</h1>
-                <h2>Find a place that saves you valuable life time</h2>
-
+                <h1>Something went wrong...</h1>
               </div>
             </div>
           </div>
